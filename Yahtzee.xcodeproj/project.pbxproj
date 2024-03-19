@@ -13,6 +13,8 @@
 		0D4F48C62B9AFA3A006E0145 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D4F48C42B9AFA3A006E0145 /* Main.storyboard */; };
 		0D4F48C82B9AFA3C006E0145 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D4F48C72B9AFA3C006E0145 /* Assets.xcassets */; };
 		0D4F48CB2B9AFA3C006E0145 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D4F48C92B9AFA3C006E0145 /* LaunchScreen.storyboard */; };
+		0D4F48D32B9F2284006E0145 /* NaikaiFont-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D4F48D22B9F2284006E0145 /* NaikaiFont-ExtraLight.ttf */; };
+		0D4F48D52BA1C0C6006E0145 /* Dices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4F48D42BA1C0C6006E0145 /* Dices.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		0D4F48C72B9AFA3C006E0145 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0D4F48CA2B9AFA3C006E0145 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0D4F48CC2B9AFA3C006E0145 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D4F48D22B9F2284006E0145 /* NaikaiFont-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NaikaiFont-ExtraLight.ttf"; sourceTree = "<group>"; };
+		0D4F48D42BA1C0C6006E0145 /* Dices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dices.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +60,11 @@
 		0D4F48BD2B9AFA3A006E0145 /* Yahtzee */ = {
 			isa = PBXGroup;
 			children = (
+				0D4F48D22B9F2284006E0145 /* NaikaiFont-ExtraLight.ttf */,
 				0D4F48BE2B9AFA3A006E0145 /* AppDelegate.swift */,
 				0D4F48C02B9AFA3A006E0145 /* SceneDelegate.swift */,
 				0D4F48C22B9AFA3A006E0145 /* ViewController.swift */,
+				0D4F48D42BA1C0C6006E0145 /* Dices.swift */,
 				0D4F48C42B9AFA3A006E0145 /* Main.storyboard */,
 				0D4F48C72B9AFA3C006E0145 /* Assets.xcassets */,
 				0D4F48C92B9AFA3C006E0145 /* LaunchScreen.storyboard */,
@@ -127,6 +133,7 @@
 			files = (
 				0D4F48CB2B9AFA3C006E0145 /* LaunchScreen.storyboard in Resources */,
 				0D4F48C82B9AFA3C006E0145 /* Assets.xcassets in Resources */,
+				0D4F48D32B9F2284006E0145 /* NaikaiFont-ExtraLight.ttf in Resources */,
 				0D4F48C62B9AFA3A006E0145 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,6 +147,7 @@
 			files = (
 				0D4F48C32B9AFA3A006E0145 /* ViewController.swift in Sources */,
 				0D4F48BF2B9AFA3A006E0145 /* AppDelegate.swift in Sources */,
+				0D4F48D52BA1C0C6006E0145 /* Dices.swift in Sources */,
 				0D4F48C12B9AFA3A006E0145 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

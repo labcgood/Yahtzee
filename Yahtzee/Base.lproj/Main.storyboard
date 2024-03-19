@@ -1,24 +1,537 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="NaikaiFont-ExtraLight.ttf">
+            <string>NaikaiFont-ExtraLight</string>
+        </array>
+        <array key="NaikaiFont-Light.ttf">
+            <string>NaikaiFont-Light</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Yahtzee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pattern_shibafu" translatesAutoresizingMaskIntoConstraints="NO" id="Rb2-Fn-IiJ">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cr3-KN-pyE">
+                                <rect key="frame" x="0.0" y="780" width="390" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Aaw-M6-KCD">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="64"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="regular"/>
+                            </visualEffectView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NbG-Oq-nwb" userLabel="第1顆骰子">
+                                <rect key="frame" x="14" y="690" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled">
+                                    <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="firstDiceButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="57h-M7-L72"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAM-1R-gRW" userLabel="第2顆骰子">
+                                <rect key="frame" x="88" y="690" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled">
+                                    <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="secondDiceButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ve2-5c-2bH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbE-uZ-LAk" userLabel="第3顆骰子">
+                                <rect key="frame" x="164" y="690" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled">
+                                    <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="thirdDiceButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EaU-th-2fN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T7j-Nh-nFx" userLabel="第4顆骰子">
+                                <rect key="frame" x="239" y="690" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled">
+                                    <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="fourthDiceButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="urK-Wh-PPy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uhf-CT-4kd" userLabel="第5顆骰子">
+                                <rect key="frame" x="314" y="690" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled">
+                                    <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="fifthDiceButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AZP-X7-L3X"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="總積分" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VJl-jt-MOS">
+                                <rect key="frame" x="14" y="705" width="109" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="NaikaiFont-ExtraLight" family="內海字體" pointSize="35"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uon-IV-lFz" userLabel="玩家2總積分">
+                                <rect key="frame" x="275" y="663" width="90" height="113"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">
+玩家2
+0</string>
+                                <fontDescription key="fontDescription" name="NaikaiFont-ExtraLight" family="內海字體" pointSize="34"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1/12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCN-7b-aay" userLabel="回合數">
+                                <rect key="frame" x="25" y="41" width="80" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="NaikaiFont-ExtraLight" family="內海字體" pointSize="30"/>
+                                <color key="textColor" red="0.086274509803921567" green="0.18823529411764706" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="玩家1" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vgr-6f-Uk6">
+                                <rect key="frame" x="104" y="41" width="130" height="44.333333333333329"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.60784313729999995" green="0.81176470590000005" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.086274509799999996" green="0.18823529410000001" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="NaikaiFont-ExtraLight" family="內海字體" pointSize="25"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="setPlayerOneNameTextFeild:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="yv1-k0-5Wc"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="玩家2" textAlignment="center" minimumFontSize="17" id="I4V-kd-5gn">
+                                <rect key="frame" x="245" y="41" width="130" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.60784313729999995" green="0.81176470590000005" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.086274509799999996" green="0.18823529410000001" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="NaikaiFont-ExtraLight" family="內海字體" pointSize="25"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="setPlayerTwoNameTextFeild:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="8dy-v6-lLX"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="玩家1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgV-gN-KWM">
+                                <rect key="frame" x="77" y="792" width="234" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="NaikaiFont-ExtraLight" family="內海字體" pointSize="20"/>
+                                <color key="textColor" red="0.086274509799999996" green="0.18823529410000001" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1-6點骰子合計超過63點即可獲得獎勵+35分" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="owi-oF-2UO">
+                                <rect key="frame" x="16" y="364" width="358" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="NaikaiFont-ExtraLight" family="內海字體" pointSize="18"/>
+                                <color key="textColor" red="0.086274509799999996" green="0.18823529410000001" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Mj-jf-exb">
+                                <rect key="frame" x="0.0" y="780" width="80" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.066666666669999999" green="0.25882352939999997" blue="0.1960784314" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="重新開始" cornerStyle="medium">
+                                    <fontDescription key="titleFontDescription" name="NaikaiFont-ExtraLight" family="內海字體" pointSize="20"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="restartButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ark-v5-8ip"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yfa-vV-Rp9">
+                                <rect key="frame" x="310" y="780" width="80" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.066666666669999999" green="0.25882352939999997" blue="0.1960784314" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="投擲骰子" cornerStyle="medium">
+                                    <fontDescription key="titleFontDescription" name="NaikaiFont-ExtraLight" family="內海字體" pointSize="20"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="rollDiceButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ycr-6a-c1n"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u06-kL-kpY">
+                                <rect key="frame" x="12" y="92" width="365" height="270"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text"> ⚀ 一點
+
+ ⚁ 二點
+
+ ⚁ 三點
+
+ ⚃ 四點
+
+ ⚄ 五點
+
+ ⚅ 六點</string>
+                                <fontDescription key="fontDescription" name="NaikaiFont-ExtraLight" family="內海字體" pointSize="22"/>
+                                <color key="textColor" red="0.066666666669999999" green="0.25882352939999997" blue="0.1960784314" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="srW-1r-yGQ">
+                                <rect key="frame" x="12" y="390" width="365" height="270"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text"> 全選
+
+ 四骰同花
+
+ 葫蘆
+
+ 小順
+
+ 大順
+
+ 快艇</string>
+                                <fontDescription key="fontDescription" name="NaikaiFont-ExtraLight" family="內海字體" pointSize="22"/>
+                                <color key="textColor" red="0.066666666669999999" green="0.25882352939999997" blue="0.1960784314" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ppR-Dc-qb8" userLabel="One1點">
+                                <rect key="frame" x="117" y="100" width="110" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.98823529409999999" green="0.86274509799999999" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="NaikaiFont-Light" family="內海字體" pointSize="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="player1Button1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Iom-Ex-Y5G"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QyG-k8-aAS" userLabel="Two1點">
+                                <rect key="frame" x="255" y="100" width="110" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.98823529409999999" green="0.86274509799999999" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="NaikaiFont-Light" family="內海字體" pointSize="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="player2Button1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lgd-ds-Jau"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JmS-2u-xQK" userLabel="One2點">
+                                <rect key="frame" x="117" y="143" width="110" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.98823529409999999" green="0.86274509799999999" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="NaikaiFont-Light" family="內海字體" pointSize="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="player1Button2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sF2-ge-jB5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahc-Sy-YZE" userLabel="Two2點">
+                                <rect key="frame" x="255" y="143" width="110" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.98823529409999999" green="0.86274509799999999" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="NaikaiFont-Light" family="內海字體" pointSize="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="player2Button2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Ex-Y3-0ev"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ivn-gS-X6d" userLabel="One3點">
+                                <rect key="frame" x="117" y="188" width="110" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.98823529409999999" green="0.86274509799999999" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="NaikaiFont-Light" family="內海字體" pointSize="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="player1Button3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="y9g-Ep-KeM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rh9-Wx-O7F" userLabel="Two3點">
+                                <rect key="frame" x="255" y="188" width="110" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.98823529409999999" green="0.86274509799999999" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="NaikaiFont-Light" family="內海字體" pointSize="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="player2Button3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Vv-6b-R2V"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zqV-6x-eVB" userLabel="One4點">
+                                <rect key="frame" x="117" y="233" width="110" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.98823529409999999" green="0.86274509799999999" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="NaikaiFont-Light" family="內海字體" pointSize="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="player1Button4:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2eB-r1-caf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9Z-P1-F67" userLabel="Two4點">
+                                <rect key="frame" x="255" y="233" width="110" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.98823529409999999" green="0.86274509799999999" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="NaikaiFont-Light" family="內海字體" pointSize="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="player2Button4:" destination="BYZ-38-t0r" eventType="touchUpInside" id="buZ-P2-PVz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R6q-Wh-Fum" userLabel="One5點">
+                                <rect key="frame" x="117" y="278" width="110" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.98823529409999999" green="0.86274509799999999" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="NaikaiFont-Light" family="內海字體" pointSize="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="player1Button5:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wpo-DE-zXV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FaC-jc-CnL" userLabel="Two5點">
+                                <rect key="frame" x="255" y="278" width="110" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.98823529409999999" green="0.86274509799999999" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="NaikaiFont-Light" family="內海字體" pointSize="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="player2Button5:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pgu-IQ-v3s"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odH-l7-EMx" userLabel="One6點">
+                                <rect key="frame" x="117" y="323" width="110" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.98823529409999999" green="0.86274509799999999" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="NaikaiFont-Light" family="內海字體" pointSize="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="player1Button6:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0W0-IP-yPr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wse-PN-SJr" userLabel="Two6點">
+                                <rect key="frame" x="255" y="323" width="110" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.98823529409999999" green="0.86274509799999999" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="NaikaiFont-Light" family="內海字體" pointSize="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="player2Button6:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fbc-Ay-hx2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v17-Ke-4uW" userLabel="One全選">
+                                <rect key="frame" x="117" y="398" width="110" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.98823529409999999" green="0.86274509799999999" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="NaikaiFont-Light" family="內海字體" pointSize="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="player1Button7:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Oqe-V9-vi8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gth-qV-0DW" userLabel="Two全選">
+                                <rect key="frame" x="255" y="398" width="110" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.98823529409999999" green="0.86274509799999999" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="NaikaiFont-Light" family="內海字體" pointSize="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="player2Button7:" destination="BYZ-38-t0r" eventType="touchUpInside" id="B4z-SS-umI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wow-iq-VRN" userLabel="One四骰同花">
+                                <rect key="frame" x="117" y="441" width="110" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.98823529409999999" green="0.86274509799999999" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="NaikaiFont-Light" family="內海字體" pointSize="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="player1Button8:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nuP-ow-YlK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZPs-GX-JQa" userLabel="Two四骰同花">
+                                <rect key="frame" x="255" y="441" width="110" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.98823529409999999" green="0.86274509799999999" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="NaikaiFont-Light" family="內海字體" pointSize="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="player2Button8:" destination="BYZ-38-t0r" eventType="touchUpInside" id="n4o-ft-M1f"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m9L-K5-AVa" userLabel="One葫蘆">
+                                <rect key="frame" x="117" y="486" width="110" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.98823529409999999" green="0.86274509799999999" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="NaikaiFont-Light" family="內海字體" pointSize="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="player1Button9:" destination="BYZ-38-t0r" eventType="touchUpInside" id="53p-AE-t5H"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgb-bE-6hg" userLabel="Two葫蘆">
+                                <rect key="frame" x="255" y="486" width="110" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.98823529409999999" green="0.86274509799999999" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="NaikaiFont-Light" family="內海字體" pointSize="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="player2Button9:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SCF-6A-Fya"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhY-eC-D4o" userLabel="One小順">
+                                <rect key="frame" x="117" y="531" width="110" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.98823529409999999" green="0.86274509799999999" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="NaikaiFont-Light" family="內海字體" pointSize="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="player1Button10:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bbu-ZV-abh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="43X-0T-huU" userLabel="Two小順">
+                                <rect key="frame" x="255" y="531" width="110" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.98823529409999999" green="0.86274509799999999" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="NaikaiFont-Light" family="內海字體" pointSize="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="player2Button10:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6l5-6f-tTx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emS-pO-Oc4" userLabel="One大順">
+                                <rect key="frame" x="117" y="576" width="110" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.98823529409999999" green="0.86274509799999999" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="NaikaiFont-Light" family="內海字體" pointSize="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="player1Button11:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yW4-NF-sJJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1um-52-MUG" userLabel="Two大順">
+                                <rect key="frame" x="255" y="576" width="110" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.98823529409999999" green="0.86274509799999999" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="NaikaiFont-Light" family="內海字體" pointSize="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="player2Button11:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uQ0-at-2R4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hk1-e7-uHR" userLabel="One快艇">
+                                <rect key="frame" x="117" y="621" width="110" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.98823529409999999" green="0.86274509799999999" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="NaikaiFont-Light" family="內海字體" pointSize="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="player1Button12:" destination="BYZ-38-t0r" eventType="touchUpInside" id="C6y-Rg-X8y"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NMd-Vf-bVE" userLabel="Two快艇">
+                                <rect key="frame" x="255" y="621" width="110" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.98823529409999999" green="0.86274509799999999" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="NaikaiFont-Light" family="內海字體" pointSize="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="player2Button12:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qzk-LQ-Ebe"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fwm-66-bpK" userLabel="玩家1總積分">
+                                <rect key="frame" x="150" y="664" width="90" height="113"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">♕
+玩家1
+0</string>
+                                <fontDescription key="fontDescription" name="NaikaiFont-ExtraLight" family="內海字體" pointSize="35"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="assembleLabel" destination="srW-1r-yGQ" id="4XE-xi-FEc"/>
+                        <outlet property="dicePointLabel" destination="u06-kL-kpY" id="bJN-zA-741"/>
+                        <outlet property="fifthDiceButton" destination="Uhf-CT-4kd" id="i0x-iC-OLe"/>
+                        <outlet property="firstDiceButton" destination="NbG-Oq-nwb" id="mLa-i3-21J"/>
+                        <outlet property="fourthDiceButton" destination="T7j-Nh-nFx" id="hPy-m4-2sU"/>
+                        <outlet property="infoLabel" destination="dgV-gN-KWM" id="ne6-v9-PrL"/>
+                        <outlet property="playerOneTextField" destination="Vgr-6f-Uk6" id="xwR-mS-LRY"/>
+                        <outlet property="playerOneTotalPointsLabel" destination="Fwm-66-bpK" id="GQz-7u-fAq"/>
+                        <outlet property="playerTwoTextField" destination="I4V-kd-5gn" id="a0C-Zn-dlI"/>
+                        <outlet property="playerTwoTotalPointsLabel" destination="Uon-IV-lFz" id="4QR-Y7-qQC"/>
+                        <outlet property="restartButton" destination="0Mj-jf-exb" id="jSt-xR-LZ2"/>
+                        <outlet property="rollDiceButton" destination="Yfa-vV-Rp9" id="WNv-zG-lXr"/>
+                        <outlet property="roundLabel" destination="MCN-7b-aay" id="7Xe-EC-smS"/>
+                        <outlet property="secondDiceButton" destination="cAM-1R-gRW" id="ini-ae-UwV"/>
+                        <outlet property="thirdDiceButton" destination="gbE-uZ-LAk" id="POX-0R-a8g"/>
+                        <outlet property="totalPointsLabel" destination="VJl-jt-MOS" id="ags-qe-fKc"/>
+                        <outletCollection property="diceButtons" destination="NbG-Oq-nwb" collectionClass="NSMutableArray" id="nfX-X5-a2Y"/>
+                        <outletCollection property="diceButtons" destination="cAM-1R-gRW" collectionClass="NSMutableArray" id="bj8-db-xkA"/>
+                        <outletCollection property="diceButtons" destination="gbE-uZ-LAk" collectionClass="NSMutableArray" id="eeD-LP-Kuz"/>
+                        <outletCollection property="diceButtons" destination="T7j-Nh-nFx" collectionClass="NSMutableArray" id="7PJ-e1-0ZW"/>
+                        <outletCollection property="diceButtons" destination="Uhf-CT-4kd" collectionClass="NSMutableArray" id="JnG-yq-OXJ"/>
+                        <outletCollection property="playerOnePointsButtons" destination="ppR-Dc-qb8" collectionClass="NSMutableArray" id="3qP-Rd-e4G"/>
+                        <outletCollection property="playerOnePointsButtons" destination="JmS-2u-xQK" collectionClass="NSMutableArray" id="L0q-b0-UWS"/>
+                        <outletCollection property="playerOnePointsButtons" destination="Ivn-gS-X6d" collectionClass="NSMutableArray" id="sXH-X7-xnO"/>
+                        <outletCollection property="playerOnePointsButtons" destination="zqV-6x-eVB" collectionClass="NSMutableArray" id="mcf-E5-2Wa"/>
+                        <outletCollection property="playerOnePointsButtons" destination="R6q-Wh-Fum" collectionClass="NSMutableArray" id="7bD-QK-TAc"/>
+                        <outletCollection property="playerOnePointsButtons" destination="odH-l7-EMx" collectionClass="NSMutableArray" id="c9p-BX-Xwe"/>
+                        <outletCollection property="playerOnePointsButtons" destination="v17-Ke-4uW" collectionClass="NSMutableArray" id="Uaj-gv-0n4"/>
+                        <outletCollection property="playerOnePointsButtons" destination="Wow-iq-VRN" collectionClass="NSMutableArray" id="AYh-5y-5Qg"/>
+                        <outletCollection property="playerOnePointsButtons" destination="m9L-K5-AVa" collectionClass="NSMutableArray" id="gVf-7Q-7AD"/>
+                        <outletCollection property="playerOnePointsButtons" destination="dhY-eC-D4o" collectionClass="NSMutableArray" id="3id-fO-csG"/>
+                        <outletCollection property="playerOnePointsButtons" destination="emS-pO-Oc4" collectionClass="NSMutableArray" id="Hpq-0b-j2V"/>
+                        <outletCollection property="playerOnePointsButtons" destination="hk1-e7-uHR" collectionClass="NSMutableArray" id="Zgr-od-WpG"/>
+                        <outletCollection property="playerTwoPointsButtons" destination="QyG-k8-aAS" collectionClass="NSMutableArray" id="EMb-Yw-uu4"/>
+                        <outletCollection property="playerTwoPointsButtons" destination="ahc-Sy-YZE" collectionClass="NSMutableArray" id="7V6-nt-sW3"/>
+                        <outletCollection property="playerTwoPointsButtons" destination="rh9-Wx-O7F" collectionClass="NSMutableArray" id="kz5-QX-iWE"/>
+                        <outletCollection property="playerTwoPointsButtons" destination="d9Z-P1-F67" collectionClass="NSMutableArray" id="c16-dG-xNB"/>
+                        <outletCollection property="playerTwoPointsButtons" destination="FaC-jc-CnL" collectionClass="NSMutableArray" id="yxk-Ei-JN6"/>
+                        <outletCollection property="playerTwoPointsButtons" destination="wse-PN-SJr" collectionClass="NSMutableArray" id="sMI-FI-wRo"/>
+                        <outletCollection property="playerTwoPointsButtons" destination="Gth-qV-0DW" collectionClass="NSMutableArray" id="ovy-IE-bEE"/>
+                        <outletCollection property="playerTwoPointsButtons" destination="ZPs-GX-JQa" collectionClass="NSMutableArray" id="9qY-gR-QKM"/>
+                        <outletCollection property="playerTwoPointsButtons" destination="vgb-bE-6hg" collectionClass="NSMutableArray" id="2SM-AL-ju7"/>
+                        <outletCollection property="playerTwoPointsButtons" destination="43X-0T-huU" collectionClass="NSMutableArray" id="6ZU-dH-Ebp"/>
+                        <outletCollection property="playerTwoPointsButtons" destination="1um-52-MUG" collectionClass="NSMutableArray" id="4TT-Ow-zng"/>
+                        <outletCollection property="playerTwoPointsButtons" destination="NMd-Vf-bVE" collectionClass="NSMutableArray" id="67a-aZ-rfw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-2918" y="-1107"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="pattern_shibafu" width="400" height="400"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
