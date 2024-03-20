@@ -7,8 +7,13 @@
 
 import UIKit
 
+struct Dice {
+    let point: Int
+}
+
 class ViewController: UIViewController, UITextFieldDelegate {
 
+    
     //玩家名稱TextField
     @IBOutlet weak var playerOneTextField: UITextField!
     @IBOutlet weak var playerTwoTextField: UITextField!
@@ -19,12 +24,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var assembleLabel: UILabel!
     //下方資訊欄Label
     @IBOutlet weak var infoLabel: UILabel!
-    //骰子Button
-    @IBOutlet weak var firstDiceButton: UIButton!
-    @IBOutlet weak var secondDiceButton: UIButton!
-    @IBOutlet weak var thirdDiceButton: UIButton!
-    @IBOutlet weak var fourthDiceButton: UIButton!
-    @IBOutlet weak var fifthDiceButton: UIButton!
     //骰子Button的Array
     @IBOutlet var diceButtons: [UIButton]!
     //骰骰子Button
@@ -125,17 +124,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     playerOneTotalPointsLabel.text = "♛\n" + playerOneName + "\n\(point1)"
                     playerTwoTotalPointsLabel.text = "\n" + playerTwoName + "\n\(point2)"
                     infoLabel.text = playerOneName + " 贏了！"
-                    showResult(show: false)
+                    showResult(show: true)
                 } else if point1 < point2 {
                     playerOneTotalPointsLabel.text = "\n" + playerOneName + "\n\(point1)"
                     playerTwoTotalPointsLabel.text = "♛\n" + playerTwoName + "\n\(point2)"
                     infoLabel.text = playerTwoName + " 贏了！"
-                    showResult(show: false)
+                    showResult(show: true)
                 } else if point1 == point2 {
                     playerOneTotalPointsLabel.text = playerOneName + "\n\(point1)"
                     playerTwoTotalPointsLabel.text = playerTwoName + "\n\(point2)"
                     infoLabel.text = "平手！"
-                    showResult(show: false)
+                    showResult(show: true)
                 }
             }
         }
@@ -212,7 +211,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         for i in 0...5 {
             //判斷快艇、四骰同花、存取判斷葫蘆用的Bool
             if judgeArray[i] == 5 && playerButtons[11].isEnabled == true {
-                //四骰
+                //四骰(快艇的同時也可以有四骰同花)
                 var totalPoint = 0
                 for i in 0...4 {
                     totalPoint += currentDices[i].point
@@ -271,20 +270,19 @@ class ViewController: UIViewController, UITextFieldDelegate {
             diceButtons[i].setImage(image, for: .normal)
             diceButtons[i].layer.backgroundColor = originalDiceColor
         }
-        //隱藏沒用到的Button文字
+        //隱藏沒選取的Button文字
         for i in 0...11 {
             if button[i].alpha != 0.5 {
                 button[i].setTitle("", for: .normal)
             }
         }
-        
     }
     
     //顯示總積分
     func showResult(show: Bool) {
-        totalPointsLabel.isHidden = show
-        playerOneTotalPointsLabel.isHidden = show
-        playerTwoTotalPointsLabel.isHidden = show
+        totalPointsLabel.isHidden = !show
+        playerOneTotalPointsLabel.isHidden = !show
+        playerTwoTotalPointsLabel.isHidden = !show
     }
     
     override func viewDidLoad() {
@@ -292,6 +290,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
         playerOneTextField.delegate = self
         playerTwoTextField.delegate = self
+        //設定TextField的圓角
         playerOneTextField.layer.cornerRadius = 22
         playerTwoTextField.layer.cornerRadius = 22
         playerOneTextField.clipsToBounds = true
@@ -314,7 +313,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             dices.append(dice)
         }
         
-        //建立目前骰子的Array
+        //建立目前骰子的Array(當前骰到的，這邊預設5顆1點為初始畫面)
         for _ in 1...5 {
             currentDicesArray.append(dices[0])
         }
@@ -328,7 +327,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         infoLabel.layer.backgroundColor = CGColor(red: 252/255, green: 220/255, blue: 42/255, alpha: 0.6)
         infoLabel.layer.cornerRadius = 15
         
-        //設定骰子的顏色
+        //設定骰子的初始顏色
         for i in 0...4 {
             let image = UIImage(named: "1")
             diceButtons[i].setImage(image, for: .normal)
@@ -336,7 +335,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             diceButtons[i].layer.cornerRadius = 15
         }
         
-        //設定button
+        //設定玩家分數的Button
         for i in 0...11 {
             //玩家1
             playerOnePointsButtons[i].titleLabel?.font = UIFont(name: "NaikaiFont-ExtraLight", size: 20)
@@ -401,29 +400,27 @@ class ViewController: UIViewController, UITextFieldDelegate {
         } else if currentPlayerIndex == 1 {
             judgeScore(playerButtons: playerTwoPointsButtons, currentDices: currentDicesArray)
         }
-        
-        
     }
 
     //點擊骰子變換顏色
     @IBAction func firstDiceButton(_ sender: Any) {
-        switchButtonColor(button: firstDiceButton)
+        switchButtonColor(button: diceButtons[0])
     }
     
     @IBAction func secondDiceButton(_ sender: Any) {
-        switchButtonColor(button: secondDiceButton)
+        switchButtonColor(button: diceButtons[1])
     }
     
     @IBAction func thirdDiceButton(_ sender: Any) {
-        switchButtonColor(button: thirdDiceButton)
+        switchButtonColor(button: diceButtons[2])
     }
     
     @IBAction func fourthDiceButton(_ sender: Any) {
-        switchButtonColor(button: fourthDiceButton)
+        switchButtonColor(button: diceButtons[3])
     }
     
     @IBAction func fifthDiceButton(_ sender: Any) {
-        switchButtonColor(button: fifthDiceButton)
+        switchButtonColor(button: diceButtons[4])
     }
     
     //選取分數的Button
@@ -557,7 +554,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         rollDiceButton.isEnabled = true
         
         //隱藏總積分
-        showResult(show: true)
+        showResult(show: false)
         
         //遊戲資訊
         infoLabel.text = playerOneName + " 遊玩"
